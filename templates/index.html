@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-commerce Recommendation System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f6f8;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background: blue;
+            color: white;
+            border: none;
+        }
+
+        .card {
+            background: #e9f3ff;
+            margin: 8px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🛒 E-commerce Recommendation System</h1>
+
+<div class="container">
+
+<form method="POST">
+    <input type="text" name="user_id" placeholder="Enter User ID (U0103)" required>
+    <br>
+    <button type="submit">Get Recommendations</button>
+</form>
+
+{% if customer_name %}
+<h2>👤 Customer: {{ customer_name }}</h2>
+{% endif %}
+
+{% if recommendations %}
+<h2>🎯 Recommendations:</h2>
+
+{% for key, value in recommendations.items() %}
+<div class="card">
+    <b>{{ key }}</b> → Rating: {{ value }}
+</div>
+{% endfor %}
+
+{% endif %}
+
+</div>
+
+</body>
+</html>  

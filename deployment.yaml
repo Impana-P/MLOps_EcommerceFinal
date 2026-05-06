@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recommender-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recommender
+
+  template:
+    metadata:
+      labels:
+        app: recommender
+
+    spec:
+      containers:
+      - name: recommender
+        image: impanap/recommender:latest
+        ports:
+        - containerPort: 5000
